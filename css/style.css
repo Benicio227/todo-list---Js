@@ -82,8 +82,16 @@ body {
     border-radius: 10px;
 }
 
+.done {
+    background-color: #1c148f;
+    text-decoration: line-through;
+    color: white;
+}
 
 
+i {
+    pointer-events: none;
+}
 
 .container-button h3 {
     margin-left: 20px;

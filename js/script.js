@@ -18,12 +18,12 @@ taskButton.addEventListener('click', (e) => {
 
 
 
+
 taskInput.addEventListener('keypress', e => {
     if(e.key === 'Enter' && taskInput.value != '') {
         setItemDb()
     }
 })
-
 
 function setItemDb() {
 
@@ -32,6 +32,7 @@ function setItemDb() {
     createElements(taskInput.value)
       
 }
+
 
 const createElements = (texto) => {
    
@@ -52,15 +53,6 @@ const createElements = (texto) => {
     createButtonCheck.classList.add('check');
     createDivButtons.appendChild(createButtonCheck);
     
-
-    createButtonCheck.addEventListener('click', checkContainer = () => {
-    const containerButton = document.querySelector('.container-button');
-
-    containerButton.firstChild.style.color = 'red';
-    containerButton.firstChild.style.textDecoration = 'line-through';
-
-    }) 
-
 
     const createIconCheck = document.createElement('i');
     createIconCheck.classList.add("fa-solid");
@@ -84,10 +76,20 @@ const createElements = (texto) => {
     
     taskInput.value = '';
 
-
-
 }
+
+document.addEventListener('click', (e)=>{
+    const targetEl = e.target
+    const parentEl = targetEl.closest('.container-button');
+    if(targetEl.classList.contains('check')) {
+        parentEl.classList.toggle('done')
+    }
+    console.log(targetEl);
+})
     
+
+
+
 
 
 
